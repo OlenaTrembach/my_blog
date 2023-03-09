@@ -1,0 +1,92 @@
+<!DOCTYPE>
+{% load static %}
+<html >
+<head>
+	<title>Мой блог</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all" />
+
+	<link rel="shortcut icon" href="css/images/favicon.ico" />
+
+</head>
+<body>
+<div class="shell">
+	<div class="border">
+
+		<div id="navigation_adm">
+			<ul>
+			    <li><a href="/" class="active">Главная</a></li>
+			    <li><a href="/admin">Админ панель</a></li>
+			    
+			</ul>
+		</div>
+
+        <div id="navigation">
+			<ul>
+			    <li><a href="/filter/?type=1">Цветы комнатные</a></li>
+			    <li><a href="/filter/?type=2">Цветы однолетние</a></li>
+                <li><a href="/filter/?type=3">Цветы многолетние</a></li>
+			    <li><a href="/filter/?type=4">Декоративные кустарники</a></li>
+
+			</ul>
+		</div>
+
+
+		<div id="main">
+			<div id="content" class="left">
+				
+				<div class="projects">
+					<h3>Записи</h3>
+                    {% for post in page_obj %}
+					<div class="item">
+						<div class="image left">
+							<img src="{{ post.img.url }}" width="200px" alt="" />
+						</div>
+						<div class="text left">
+                            <br>
+							<h4><a href="/{{ post.id }}">{{ post.title }}</a></h4>
+							<p>{{ post.text|safe|truncatechars:140 }}</p>
+							<p>Автор: {{ post.author }}</p>
+						</div>
+
+						<div class="cl">&nbsp;</div>
+					</div>
+
+					{% endfor %}
+				</div>
+
+            <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; Первая страница</a>
+            <a href="?page={{ page_obj.previous_page_number }}">Предыдущая страница</a>
+        {% endif %}
+
+        <span class="current">
+            Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Следующая страница</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">Последняя страница &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+
+
+
+			</div>
+			
+			<div class="cl">&nbsp;</div>
+		</div>
+		
+
+	</div>
+	
+	<div id="footer">
+		<p class="copy right">Copyright &copy;  2023 </p>
+	</div>
+</div>
+</body>
+</html>

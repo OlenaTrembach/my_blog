@@ -1,0 +1,114 @@
+<!DOCTYPE>
+{% load static %}
+<html >
+<head>
+	<title>Мой блог</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all" />
+
+	<link rel="shortcut icon" href="css/images/favicon.ico" />
+
+</head>
+<body>
+<div class="shell">
+	<div class="border">
+
+		<div id="navigation_adm">
+			<ul>
+			    <li><a href="/" class="active">Главная</a></li>
+			    <li><a href="/admin">Админ панель</a></li>
+
+			</ul>
+		</div>
+
+
+        <div id="navigation">
+			<ul>
+			    <li><a href="/filter/?type=1">Цветы комнатные</a></li>
+			    <li><a href="/filter/?type=2">Цветы однолетние</a></li>
+                <li><a href="/filter/?type=3">Цветы многолетние</a></li>
+			    <li><a href="/filter/?type=4">Декоративные кустарники</a></li>
+
+			</ul>
+		</div>
+
+
+		<div id="main">
+			<div id="content" class="left">
+
+				<div class="projects">
+					<h3>{{ post.title }}</h3>
+                    <p class="data">{{ post.data }}</p>
+                   <p>
+                       <img src="{{ post.img.url }}" width="50%" alt="" />
+                   </p>
+					<div class="item">
+
+						<div class="text left">
+
+							<article>{{ post.text|safe }}</article>
+							<p>Автор: {{ post.author }}</p>
+						</div>
+						<div class="cl">&nbsp;</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="cl">&nbsp;</div>
+		</div>
+
+        <div class="like">
+            <br>
+            <p>Понравилось: {{ post.likes_set.all.count }}</p>
+            <br>
+            <a href="{% url 'add_like' post.id %}">Нравится</a>&nbsp; &nbsp;
+            <a href="{% url 'del_like' post.id %}">Не нравится</a>
+        </div>
+
+
+        <div class="form_comments">
+            <h3>Оставить комментарий</h3>
+            <div>
+                <form action="{% url 'add_comments' post.id %}" method="post">
+                    {% csrf_token %}
+                    <div>
+                        <label>Ваш комментарий:</label>
+                        <textarea name="text_comment"></textarea>
+                    </div>
+                    <div>
+                        <label>Ваше имя * :</label>
+                        <input name="name" type="text">
+                    </div>
+                    <div>
+                        <label>Ваш email * :</label>
+                        <input name="email" type="email">
+                    </div>
+                    <div>
+                        <input type="submit">
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+
+        <div class="comments">
+            {% for comment in post.comments_set.all %}
+                <h4>{{ comment.name }} : </h4>
+                <p>
+                    "{{ comment.text_comment }}"
+                </p>
+                <br>
+            {% endfor %}
+        </div>
+
+
+	</div>
+
+	<div id="footer">
+		<p class="copy right">Copyright &copy;  2023 </p>
+	</div>
+</div>
+</body>
+</html>

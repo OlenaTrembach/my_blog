@@ -1,0 +1,209 @@
+* { margin: 0; padding: 0; outline:0; }
+
+body {
+    font-size: 16px;
+    line-height: 20px;
+    font-family: Georgia, Arial, Helvetica, Sans-Serif;
+    color: #333;
+    background-image: url('../img/bg.jpg');
+    background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+a { color: #45a049; text-decoration: none; cursor:pointer; }
+a:hover { text-decoration: underline; }
+
+/*a img {*/
+/* box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);*/
+/*  border: 4px solid #7f7f7f;*/
+/*  padding: 4px;*/
+/*}*/
+
+input, textarea, select { font-family: Arial, Helvetica, sans-serif; font-size:16px; }
+textarea { overflow:auto; }
+
+.cl { display: block; height: 0; font-size: 0; line-height: 0; text-indent: -4000px; clear: both; }
+.notext { font-size: 0; line-height: 0; text-indent: -4000px; }
+
+.left, .alignleft { float: left; display: inline; }
+.right, .alignright { float: right; display: inline; }
+
+
+.shell { width: 980px; margin: 0 auto; }
+.border { border: 1px solid #e8e8e8; background: #fff; position: relative; }
+
+
+
+
+#main { width: 932px; padding: 37px 24px 17px 24px; }
+#main h3 { font-size: 20px; line-height: 20px; color: #000; text-transform: uppercase; border-bottom: 1px solid #dbdbdb; padding: 0 0 9px 0; }
+#main a.more:hover { text-decoration: none; }
+
+#content { width: 905px; }
+
+.highlight {  }
+.highlight h3 { margin: 0 0 9px 0; }
+.highlight p { padding: 0 0 11px 0; }
+/*.highlight img { margin: 4px 16px 0 12px; }*/
+
+.projects { padding: 10px 0 0 0; }
+.projects h3 { margin: 0 0 17px 0; }
+.projects .item { margin: 0 0 28px 0; }
+/*.projects .image { width: 183px; height: 111px; border: 0px solid #dbdbdb; padding: 2px; margin: 0 20px 0 3px; }*/
+.projects .text { width: 600px; }
+.projects .text h4 { font-size: 16px; line-height: 18px; color: #333; text-transform: uppercase; padding: 3px 0 2px 0; }
+.projects .text p { padding: 10px 0 3px 0; }
+
+.btn-buy:hover { text-decoration: none; }
+
+.advertisement { padding: 0 0 13px 0; }
+.advertisement h3 { margin: 0 0 18px 0; }
+.advertisement .ads { padding: 0 15px 0 7px; }
+.advertisement .ad { margin: 0 0 18px 0; }
+
+
+
+#footer { font-family: Arial, sans-serif; font-size: 11px; line-height: 14px; color: #7f7f7f; padding: 18px 27px 20px 38px;
+background: #ffffff;}
+#footer a{ color: #7f7f7f; }
+
+img {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  border: 4px solid #fff;
+  padding: 4px;
+    margin: 10px;
+}
+
+#navigation_adm ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+}
+
+#navigation_adm li {
+  margin-right: 20px;
+}
+
+#navigation_adm li:last-child {
+  margin-right: 0;
+}
+
+#navigation_adm a {
+  color: #888;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+#navigation_adm a.active {
+  font-weight: bold;
+}
+
+#navigation ul {
+  list-style-type: none;
+  margin: 20px;
+  padding: 10px;
+  display: flex;
+}
+
+#navigation li {
+  margin-right: 20px;
+}
+
+#navigation li:last-child {
+  margin-right: 0;
+}
+
+#navigation a {
+  color: #888;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+#navigation a.active {
+  font-weight: bold;
+  color: #000;
+}
+
+#navigation a {
+  margin-top: 20px;
+  background-color: #45a049;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#navigation a:hover {
+  background-color: darkgreen;
+}
+.like {
+    padding: 10px 20px;
+}
+
+.form_comments {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.form_comments h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.form_comments form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form_comments label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form_comments textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+.form_comments input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+.form_comments input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.form_comments input[type="submit"]:hover {
+  background-color: #45a049;
+}
+.comments {
+  margin: 20px;
+}
+
+.comments h4 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.comments p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
