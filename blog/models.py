@@ -37,6 +37,7 @@ class Comments(models.Model):
         return f'{self.name}, {self.post}, {self.text_comment}'
 
     class Meta:
+        ordering = ['-id']
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'
 

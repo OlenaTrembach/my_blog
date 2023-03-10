@@ -11,7 +11,7 @@ class PostView(View):
     """ Вывод статей """
 
     def get(self, request):
-        posts = Post.objects.all()
+        posts = Post.objects.order_by('-id')
         paginator = Paginator(posts, 3)
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
@@ -21,9 +21,9 @@ class PostView(View):
 def get_art_filter(request):
     topic_type = request.GET.get('type', None)
     if topic_type:
-        queryset = Post.objects.filter(type=topic_type)
+        queryset = Post.objects.filter(type=topic_type).order_by('-id')
     else:
-        queryset = Post.objects.all()
+        queryset = Post.objects.order_by('-id')
 
     paginator = Paginator(queryset, 3)
     page_number = request.GET.get('page')
