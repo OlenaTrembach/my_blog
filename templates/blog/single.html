@@ -2,7 +2,7 @@
 {% load static %}
 <html >
 <head>
-	<title>Мой блог</title>
+	<title>{{ post.title }}</title>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all" />
 
@@ -38,7 +38,7 @@
 
 				<div class="projects">
 					<h3>{{ post.title }}</h3>
-                    <p class="data">{{ post.data }}</p>
+                    <p class="data">Дата публикации: {{ post.data }}</p>
                    <p>
                        <img src="{{ post.img.url }}" width="50%" alt="" />
                    </p>
@@ -68,7 +68,7 @@
 
 
         <div class="form_comments">
-            <h3>Оставить комментарий</h3>
+            <h3>Оставить комментарий:</h3>
             <div>
                 <form action="{% url 'add_comments' post.id %}" method="post">
                     {% csrf_token %}
