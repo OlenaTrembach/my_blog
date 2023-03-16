@@ -38,7 +38,7 @@ textarea { overflow:auto; }
 
 
 #main { width: 932px; padding: 37px 24px 17px 24px; }
-#main h3, h2 { font-size: 20px; line-height: 20px; color: #000; text-transform: uppercase; border-bottom: 1px solid #dbdbdb; padding: 20px; }
+#main h3, h2, h1 { font-size: 20px; line-height: 20px; color: #000; text-transform: uppercase; border-bottom: 1px solid #dbdbdb; padding: 20px; }
 #main a.more:hover { text-decoration: none; }
 
 #content { width: 905px; }
@@ -203,4 +203,7 @@ img {
 
 .form_comments input[type="submit"]:hover {
   background-color: #45a049;
+}
+p.data {
+  padding: 20px;
 }
