@@ -21,6 +21,14 @@
 			</ul>
 		</div>
 
+<form action="{% url 'search_results' %}" method="get">
+  {% csrf_token %}
+  <input type="text" name="q" placeholder="Поиск..." value="{{ query }}">
+  <button type="submit">Найти</button>
+</form>
+
+
+
         <div id="navigation">
 			<ul>
 			    <li><a href="/filter/?type=1">Цветы комнатные</a></li>

@@ -3,7 +3,10 @@ from django.views.generic.base import View
 from .models import Post, Likes
 from .form import CommentsForm
 from django.core.paginator import Paginator
-from django.shortcuts import render
+from django.db.models import Q
+from django.views.generic import ListView
+from .form import SearchForm
+
 
 
 # Create your views here.
@@ -85,3 +88,26 @@ class DelLike(View):
             return redirect(f'/{art_id}')
         except:
             return redirect(f'/{art_id}')
+
+
+class SearchView(ListView):
+    model = Post
+    template_name = 'blog/search_results.html'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        print(query)
+        if query:
+            object_list = Post.objects.filter(
+                Q(title__icontains=query) | Q(text__icontains=query)
+            )
+        else:
+            object_list = Post.objects.none()
+        return object_list
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['query'] = self.request.GET.get('q', '')
+        context['form'] = SearchForm(self.request.GET)
+        return context
+

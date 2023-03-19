@@ -8,4 +8,5 @@ urlpatterns = [
     path('comments/<int:art_id>/', AddComments.as_view(), name='add_comments'),
     path('<int:art_id>/like/', AddLike.as_view(), name='add_like'),
     path('<int:art_id>/del_like/', DelLike.as_view(), name='del_like'),
+    path('search/', SearchView.as_view(), name='search_results'),
 ]
