@@ -19,12 +19,6 @@ class PostAdmin(admin.ModelAdmin):
 admin.site.register(Post, PostAdmin)
 
 
-# Register your models here.
-# @admin.register(Post)
-# class PostAdmin(admin.ModelAdmin):
-#     list_display = ('title', 'author')
-#
-
 @admin.register(Comments)
 class CommentsAdmin(admin.ModelAdmin):
     list_display = ('name', 'post', 'text_comment')

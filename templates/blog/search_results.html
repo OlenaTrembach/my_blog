@@ -6,7 +6,7 @@
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all" />
 
-	<link rel="shortcut icon" href="css/images/favicon.ico" />
+	<link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" />
 
 </head>
 <body>
@@ -32,13 +32,13 @@
 			</ul>
 		</div>
 
-<h1>Результаты поиска</h1>
+    <h1>Результаты поиска</h1>
 
-   <form action="{% url 'search_results' %}" method="get">
-  {% csrf_token %}
-  <input type="text" name="q" placeholder="Поиск..." value="{{ query }}">
-  <button type="submit">Найти</button>
-</form>
+    <form action="{% url 'search_results' %}" method="get">
+      {% csrf_token %}
+      <input type="text" name="q" placeholder="Поиск..." value="{{ query }}">
+      <button type="submit">Найти</button>
+    </form>
 
     {% if object_list %}
         <div class="list">
